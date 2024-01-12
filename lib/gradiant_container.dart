@@ -1,29 +1,52 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/styled_text.dart';
 
-var startAlignnment = Alignment.topRight;
-var endAlignment= Alignment.bottomLeft; 
-
+const startAlignnment = Alignment.topRight;
+const endAlignment= Alignment.bottomLeft; 
 class GradiantContainer extends StatelessWidget {
-  const GradiantContainer({super.key});
+  const GradiantContainer(this.color1, this.color2, {super.key,});
+
+  final Color color1;
+  final Color color2;
+
 
   @override
   Widget build(context) {
     return Container(
       decoration:  BoxDecoration(
         gradient: LinearGradient(
-          colors:const [
-            Color.fromARGB(255, 187, 88, 249),
-            Color.fromARGB(255, 98, 13, 144)
-          ],
+          colors:[color1,color2] ,
           begin: startAlignnment,
           end: endAlignment,
         ),
       ),
       child: const Center(
-        child: StyledText(),
+        child: StyledText('RollDice'),
         ),
       );
   }
 }
+
+// class GradiantContainer extends StatelessWidget {
+//   const GradiantContainer({super.key,required this.color});
+
+//   final List<Color> color;
+
+
+//   @override
+//   Widget build(context) {
+//     return Container(
+//       decoration:  BoxDecoration(
+//         gradient: LinearGradient(
+//           colors:color ,
+//           begin: startAlignnment,
+//           end: endAlignment,
+//         ),
+//       ),
+//       child: const Center(
+//         child: StyledText('RollDice'),
+//         ),
+//       );
+//   }
+// }
 
